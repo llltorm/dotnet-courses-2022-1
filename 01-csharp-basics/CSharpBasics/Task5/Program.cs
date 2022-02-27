@@ -14,7 +14,7 @@ namespace Task5
                     sum += i;
                 }
             }
-            Console.WriteLine($"Сумма чисел = {sum}");
+            Console.WriteLine(sum);
         }
     }
 }

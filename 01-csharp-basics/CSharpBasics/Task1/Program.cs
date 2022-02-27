@@ -27,7 +27,7 @@ namespace Task1
                 if (numeric_sideB > 0) break;
                 else Console.WriteLine("Введите положительное число, больше 0");
             }
-            Console.WriteLine($"Площадь фигуры = {result}");
+            Console.WriteLine(result);
         }
     }
 }
