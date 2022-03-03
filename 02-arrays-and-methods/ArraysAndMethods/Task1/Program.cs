@@ -62,8 +62,8 @@ namespace Task1
             {
                 Console.WriteLine(masRandomValue[i]);
             }
-            Console.WriteLine(maxValue);
             Console.WriteLine(minValue);
+            Console.WriteLine(maxValue);
         }
 
     }
