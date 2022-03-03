@@ -13,8 +13,8 @@ namespace Task1
             while(true)
             {  
                 Console.WriteLine("Введите первую сторону прямоугольника:");
-                string string_sideA = Console.ReadLine();
-                numericSideA = int.Parse(string_sideA);
+                //string string_sideA = Console.ReadLine();
+                numericSideA = int.Parse(Console.ReadLine());
                 if (numericSideA > 0) break;
                 else Console.WriteLine("Введите положительное число, больше 0");
             }
