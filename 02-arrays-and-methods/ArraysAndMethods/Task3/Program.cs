@@ -6,13 +6,15 @@ namespace Task3
     {
         static void Main(string[] args)
         {
+
             int[] masRandomValue = new int[10];
-            Random random = new Random();
-            for (int i = 0; i < masRandomValue.Length; i++)
+            CreateMassiv(masRandomValue);
+            OutputMassiv(masRandomValue);
+/*            for (int i = 0; i < masRandomValue.Length; i++)
             {
                 masRandomValue[i] = random.Next(10) - 5;
                 Console.WriteLine(masRandomValue[i]);
-            }
+            }*/
             Console.WriteLine(GetSumOfNonNegativeElements(masRandomValue));
         }
 
@@ -27,6 +29,25 @@ namespace Task3
                 }
             }
             return sum;
+        }
+
+        static int[] CreateMassiv(int[] masRandomValue)
+        {
+            Random random = new Random();
+            for (int i = 0; i < masRandomValue.Length; i++)
+            {
+                masRandomValue[i] = random.Next(10) - 5;
+            }
+            return masRandomValue;
+        }
+
+        static int[] OutputMassiv(int[] masRandomValue)
+        {
+            for (int i = 0; i < masRandomValue.Length; i++)
+            {
+                Console.WriteLine(masRandomValue[i]);
+            }
+            return masRandomValue;
         }
     }
 }
