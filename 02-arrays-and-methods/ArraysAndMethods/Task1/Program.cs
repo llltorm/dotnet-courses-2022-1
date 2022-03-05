@@ -29,7 +29,7 @@ namespace Task1
             maxValue = 0;
             minValue = 100;
             //поиск минимального и максимального значений
-            for (int i = 0; i < masRandomValue.Length; i++)
+/*            for (int i = 0; i < masRandomValue.Length; i++)
             {
                 if (masRandomValue[i] > maxValue)
                 {
@@ -39,7 +39,7 @@ namespace Task1
                 {
                     minValue = masRandomValue[i];
                 }
-            }
+            }*/
             //сортировка массива
             for (int i = 0; i < masRandomValue.Length; i++)
             {
@@ -53,6 +53,8 @@ namespace Task1
                     }
                 }
             }
+            minValue = masRandomValue[0];
+            maxValue = masRandomValue[masRandomValue.Length - 1];
             return masRandomValue;
         }
         
