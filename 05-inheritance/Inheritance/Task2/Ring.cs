@@ -28,13 +28,13 @@ namespace Task2
         }
         public override double Circumference()
         {
-            return 2 * Math.PI * _radius + 2 * Math.PI * _innerRadius;
+            return base.Circumference() + 2 * Math.PI * _innerRadius;
         }
 
 
         public override double Area()
         {
-            return Math.PI * _radius * _radius - Math.PI * _innerRadius * _innerRadius;
+            return base.Area() - Math.PI * _innerRadius * _innerRadius;
         }
     }
 }

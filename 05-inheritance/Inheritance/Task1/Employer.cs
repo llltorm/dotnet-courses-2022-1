@@ -10,16 +10,18 @@ namespace Task1
         protected string _position;
         protected string _company;
         protected double _salary;
+        private readonly DateTime beginOfCompany = new DateTime(1995, 12, 12);
+        private const int MROT = 13890;
 
         public Employer(DateTime birthTime, string name, string sureName, string otchestvo, DateTime dateGetJob, string position, double salary, string company)
             : base(birthTime, name, sureName, otchestvo)
         {
-            DateTime beginOfCompany = new DateTime(1995, 12, 12);
+            
             if ((dateGetJob.Date < beginOfCompany.Date) || (dateGetJob > DateTime.Now))
             {
                 throw new AccessViolationException("Дата начала работы некорректна");
             }
-            if (salary < 13890)
+            if (salary < MROT)
             {
                 throw new AccessViolationException("Зарплата не может быть меньше МРОТ");
             }
@@ -36,7 +38,7 @@ namespace Task1
         public string Position
         {
             get { return _position; }
-            set { _position = value; }
+            set { _position = value; } //добавить исключения в set
         }
 
         public string Company

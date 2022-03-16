@@ -9,10 +9,10 @@ namespace Task6
         {
             Console.WriteLine("Впишите число");
             string inputString = Console.ReadLine();
-            Output(inputString);
+            Process(inputString);
         }
 
-        static void Output(string inputString)
+        static void Process(string inputString)
         {
             string standart = @"^-?(0|[1-9]\d*)(\.\d+)?$";
             string science = @"-?\d*\.?\d+e[+-]?\d+";

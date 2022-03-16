@@ -10,10 +10,11 @@ namespace Task4
             MyString exampleTwo = new MyString("Пример");
             char[] example = { 'П', 'р', 'и', 'м', 'е', 'р' };
             MyString exampleThree = new MyString(example);
-            Console.WriteLine(exampleTwo.str);
-            Console.WriteLine(exampleTwo.str);
+            Console.WriteLine(exampleTwo.Str);
+            Console.WriteLine(exampleTwo.Str);
             MyString summ = exampleThree + exampleTwo;
-            Console.WriteLine(summ.str);
+            Console.WriteLine(summ.Str);
+            Console.WriteLine(exampleTwo.ToString());
         }
     }
 }

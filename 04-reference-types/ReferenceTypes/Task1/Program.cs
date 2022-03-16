@@ -20,7 +20,7 @@ namespace Task1
             User User = new User(birth, name, lastname, otchestvo);
             Console.WriteLine(User.Name);
             Console.WriteLine(User.LastName);
-            Console.WriteLine(User.Otchestvo);
+            Console.WriteLine(User.Patronymic);
             Console.WriteLine(User.Age);
         }
     }

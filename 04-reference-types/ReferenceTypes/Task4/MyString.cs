@@ -13,20 +13,20 @@ namespace Task4
             _str = new char[0];
         }
 
-        public MyString(string S)
+        public MyString(string s)
         {
-            _str = S.ToCharArray();
+            _str = s.ToCharArray();
         }
 
-        public MyString(char[] S)
+        public MyString(char[] s)
         {
-            _str = S;
+            _str = s;
         }
 
-        public char[] str
+        public char[] Str
         {
             get { return _str; }
-            set { _str = value; }
+            //set { _str = value; }
         }
 
         public static MyString operator +(MyString Object1, MyString Object2)
@@ -46,17 +46,15 @@ namespace Task4
 
         public static bool operator ==(MyString Object1, MyString Object2)
         {
-            if (Object1._str == Object2._str) { return true; }
-            return false;
+            return Object1._str == Object2._str; //сравнивать значения а не ссылки
         }
 
         public static bool operator !=(MyString Object1, MyString Object2)
         {
-            if (Object1._str != Object2._str) { return true; }
-            return false;
+            return !(Object1 == Object2);
         }
 
-        public string ToString()
+        public override string ToString()
         {
             //a = "";
             string str = _str.ToString();

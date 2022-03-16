@@ -8,24 +8,24 @@ namespace Task1
     {
         private DateTime _birthTime;
         private string _name;
-        private string _surename;
-        private string _otchestvo;
+        private string _lastName;
+        private string _patronymic;
 
-        public User(DateTime birthTime, string name, string sureName, string otchestvo)
+        public User(DateTime birthTime, string name, string lastName, string patronymic)
         {
             DateTime check = new DateTime(1900, 01, 01);
             if (birthTime.Date > DateTime.Now.Date || birthTime < check.Date)
             {
                 throw new ArgumentOutOfRangeException($" Not correct time");
             }
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(sureName) || string.IsNullOrEmpty(otchestvo))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(patronymic))
             {
                 throw new ArgumentOutOfRangeException($" must be not empty");
             }
             _birthTime = birthTime;
             _name = name;
-            _surename = sureName;
-            _otchestvo = otchestvo;
+            _lastName = lastName;
+            _patronymic = patronymic;
         }
 
         public string Name
@@ -41,30 +41,30 @@ namespace Task1
 
         public string LastName
         {
-            get { return _surename; }
-            set { _surename = value; }
+            get { return _lastName; }
+            set { _lastName = value; }
         }
 
-        public string Otchestvo
+        public string Patronymic
         {
-            get { return _otchestvo; }
-            set { _otchestvo = value; }
+            get { return _patronymic; }
+            set { _patronymic = value; }
         }
 
-        private static int AgeCalculating(DateTime date)
+        private int AgeCalculating()
         {
             int age;
             DateTime now = DateTime.Now;
-            age = DateTime.Now.Year - date.Year;
-            if (now.Month < date.Month || (now.Month == date.Month && now.Day < date.Day))
+            age = DateTime.Now.Year - _birthTime.Year;
+            if (now.Month < _birthTime.Month || (now.Month == _birthTime.Month && now.Day < _birthTime.Day))
                 age--;
             return age;
         }
         public int Age
         {
             ////Исправить дату для разных дней
-            get { return AgeCalculating(_birthTime); }
-            //set  { _birthTime = AgeCalculating(value); }
+            get { return AgeCalculating(); }
+            //set  { _birthTime = value; }
         }
 
     }
