@@ -13,7 +13,8 @@ namespace Task1
             int exp = Emploer1.Expirience;
             Console.WriteLine($"Возраст - {age} лет");
             Console.WriteLine($"Опыт - {exp} лет.");
-            Console.WriteLine("ФИО - {0} {1} {2}", Emploer1.LastName, Emploer1.Name, Emploer1.Otchestvo);
+            Console.WriteLine("ФИО - {0} {1} {2}", Emploer1.LastName, Emploer1.Name, Emploer1.Patronymic);
+            Emploer1.Position="";
             Emploer1.Salary = 120;
         }
     }

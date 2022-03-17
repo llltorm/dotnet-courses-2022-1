@@ -13,12 +13,10 @@ namespace Task3
         public int A
         {
             get { return _a; }
-
         }
         public int B
         {
             get { return _b; }
-
         }
 
         public int C

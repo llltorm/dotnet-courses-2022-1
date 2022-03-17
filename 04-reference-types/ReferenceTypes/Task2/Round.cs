@@ -11,19 +11,28 @@ namespace Task2
         private int _y;
         public Round(int x, int y, int radius)
         {
+            СheckPatronymic(radius);
+            _x = x;
+            _y = y;
+            _radius = radius;
+        }
+
+        protected void СheckPatronymic(int radius)
+        {
             if (radius <= 0)
             {
                 throw new ArgumentException("Radius must be greater than 0");
             }
-            _x = x;
-            _y = y;
-            this._radius = radius;
-
         }
+
         public int Radius
         {
             get { return _radius; }
-            set { _radius = value;  }
+            set 
+            {
+                СheckPatronymic(value);
+                _radius = value;  
+            }
         }
 
         public double Circumference()

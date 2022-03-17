@@ -8,30 +8,62 @@ namespace Task1
     {
         private DateTime _birthTime;
         private string _name;
-        private string _surename;
-        private string _otchestvo;
+        private string _lastName;
+        private string _patronymic;
+        private readonly DateTime check = new DateTime(1900, 01, 01);
 
-        public User(DateTime birthTime, string name, string sureName, string otchestvo)
+        public User(DateTime birthTime, string name, string lastName, string patronymic)
         {
-            DateTime check = new DateTime(1900, 01, 01);
+            СheckBirthTime(birthTime);
+            СheckName(name);
+            СheckLastName(lastName);
+            СheckPatronymic(patronymic);
+            _birthTime = birthTime;
+            _name = name;
+            _lastName = lastName;
+            _patronymic = patronymic;
+        }
+
+        protected void СheckBirthTime(DateTime birthTime)
+        {
             if (birthTime.Date > DateTime.Now.Date || birthTime < check.Date)
             {
                 throw new ArgumentOutOfRangeException($" Not correct time");
             }
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(sureName) || string.IsNullOrEmpty(otchestvo))
+        }
+
+        protected void СheckName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
             {
                 throw new ArgumentOutOfRangeException($" must be not empty");
             }
-            _birthTime = birthTime;
-            _name = name;
-            _surename = sureName;
-            _otchestvo = otchestvo;
+        }
+
+        protected void СheckLastName(string lastName)
+        {
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentOutOfRangeException($" must be not empty");
+            }
+        }
+
+        protected void СheckPatronymic(string patronymic)
+        {
+            if (string.IsNullOrEmpty(patronymic))
+            {
+                throw new ArgumentOutOfRangeException($" must be not empty");
+            }
         }
 
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set 
+            {
+                СheckName(value);
+                _name = value; 
+            }
         }
 
         /*        public void SetName(string value)
@@ -41,14 +73,22 @@ namespace Task1
 
         public string LastName
         {
-            get { return _surename; }
-            set { _surename = value; }
+            get { return _lastName; }
+            set 
+            {
+                СheckLastName(value);
+                _lastName = value; 
+            }
         }
 
-        public string Otchestvo
+        public string Patronymic
         {
-            get { return _otchestvo; }
-            set { _otchestvo = value; }
+            get { return _patronymic; }
+            set 
+            {
+                СheckPatronymic(value);
+                _patronymic = value; 
+            }
         }
 
         protected static int YearCalculating(DateTime date)
