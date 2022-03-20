@@ -31,7 +31,7 @@ namespace Task4
 
         public static MyString operator +(MyString Object1, MyString Object2)
         {
-            string sum = Object1.ToString() + Object2.ToString();
+            string sum = String.Concat(Object1._str) + String.Concat(Object2._str);
             MyString Object3 = new MyString(sum);
             return Object3;
         }
@@ -39,14 +39,15 @@ namespace Task4
 
         public static MyString operator -(MyString Object1, MyString Object2)
         {
-            string str1 = Object1.ToString();
-            string str2 = Object2.ToString();
+            string str1 = Object1._str.ToString();
+            string str2 = Object2._str.ToString();
             return new MyString { _str = str1.Replace(str2, "").ToCharArray() };
         }
 
         public static bool operator ==(MyString Object1, MyString Object2)
         {
-            return Object1._str == Object2._str; //сравнивать значения а не ссылки
+            return String.Concat(Object1._str) == String.Concat(Object2._str); 
+            //return Object1._str.Equals(Object2._str);
         }
 
         public static bool operator !=(MyString Object1, MyString Object2)
@@ -57,7 +58,7 @@ namespace Task4
         public override string ToString()
         {
             //a = "";
-            string str = _str.ToString();
+            string str = String.Concat(_str);
             return str;
         }
     }

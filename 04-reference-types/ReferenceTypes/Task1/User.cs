@@ -102,9 +102,8 @@ namespace Task1
         }
         public int Age
         {
-            ////Исправить дату для разных дней
+            ////Исправление даты для разных дней
             get { return YearCalculating(_birthTime); }
-            //set  { _birthTime = AgeCalculating(value); }
         }
     }
 
