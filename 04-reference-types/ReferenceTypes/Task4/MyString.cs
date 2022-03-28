@@ -20,7 +20,7 @@ namespace Task4
 
         public MyString(char[] s)
         {
-            _str = s;
+            s.CopyTo(_str, 0); // переделать, чтобы не было ссылки
         }
 
         public char[] Str
@@ -29,30 +29,30 @@ namespace Task4
             //set { _str = value; }
         }
 
-        public static MyString operator +(MyString Object1, MyString Object2)
+        public static MyString operator +(MyString object1, MyString object2)
         {
-            string sum = String.Concat(Object1._str) + String.Concat(Object2._str);
+            string sum = String.Concat(object1._str) + String.Concat(object2._str);
             MyString Object3 = new MyString(sum);
             return Object3;
         }
 
 
-        public static MyString operator -(MyString Object1, MyString Object2)
+        public static MyString operator -(MyString object1, MyString object2)
         {
-            string str1 = Object1._str.ToString();
-            string str2 = Object2._str.ToString();
+            string str1 = object1._str.ToString();
+            string str2 = object2._str.ToString();
             return new MyString { _str = str1.Replace(str2, "").ToCharArray() };
         }
 
-        public static bool operator ==(MyString Object1, MyString Object2)
+        public static bool operator ==(MyString object1, MyString object2)
         {
-            return String.Concat(Object1._str) == String.Concat(Object2._str); 
+            return object1.ToString() == object2.ToString(); 
             //return Object1._str.Equals(Object2._str);
         }
 
-        public static bool operator !=(MyString Object1, MyString Object2)
+        public static bool operator !=(MyString object1, MyString object2)
         {
-            return !(Object1 == Object2);
+            return !(object1 == object2);
         }
 
         public override string ToString()

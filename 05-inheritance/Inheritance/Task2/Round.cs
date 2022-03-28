@@ -11,19 +11,29 @@ namespace Task2
         private int _y;
         public Round(int x, int y, int radius)
         {
-            if (radius <= 0)
-            {
-                throw new ArgumentException("Радиус должен быть больше 0");
-            }
+            СheckRadius(radius);
             _x = x;
             _y = y;
             _radius = radius;
 
         }
+
+        protected void СheckRadius(int radius)
+        {
+            if (radius <= 0)
+            {
+                throw new ArgumentException("Радиус должен быть больше 0");
+            }
+        }
+
+
         public int Radius
         {
             get { return _radius; }
-            set { _radius = value; }
+            set {
+                СheckRadius(value);
+                _radius = value;
+                }
         }
 
         public int X

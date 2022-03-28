@@ -10,21 +10,29 @@ namespace Task2
 
         public Ring(int x, int y, int radius, int innerRadius) : base(x, y, radius)
         {
+            СheckInnerRadius(innerRadius, radius);
+            _innerRadius = innerRadius;
+        }
+        protected void СheckInnerRadius(int innerRadius, int radius)
+        {
             if (innerRadius <= 0)
             {
                 throw new ArgumentException("Radius can't be 0 or less");
             }
+
             if (innerRadius > radius)
             {
                 throw new ArgumentException("Outer radius can't be less than inner");
             }
-            _innerRadius = innerRadius;
         }
 
         public int InnerRadius
         {
             get { return _innerRadius; }
-            set { _innerRadius = value;  }
+            set {
+                СheckInnerRadius(value, _radius);
+                _innerRadius = value;  
+            }
         }
         public override double Circumference()
         {
