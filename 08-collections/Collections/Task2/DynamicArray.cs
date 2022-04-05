@@ -1,21 +1,28 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Task1
+namespace Task2
 {
-    public class DynamicArray<T>
+    public class DynamicArray<T> : IEnumerable<T>
     {
         private T[] _series;
         private int _length;
-        //private int _capacity; // убрать поле по возможности
+        //private int _capacity;
+
+        public DynamicArray()
+        {
+            _series = new T[8];
+            _length = 0;
+            //_capacity = _series.Length;
+        }
 
         public DynamicArray(int count) 
         {
             _series = new T[count];
             _length = _series.Length;
             //_capacity = _length;
-            //Array.Resize(ref _series, _capacity);
         }
 
         public DynamicArray(T[] series)
@@ -23,16 +30,30 @@ namespace Task1
             _series = series;
             _length = _series.Length;
             //_capacity = _series.Length ;
-            //Array.Resize(ref _series, _capacity);
         }
 
-        public DynamicArray()
+
+        public DynamicArray(IEnumerable<T> series)
         {
-            _series = new T[8];
-            _length = 0;
+            _series = (T[])series;
+            _length = _series.Length;
             //_capacity = _series.Length;
-            //Array.Resize(ref _series, _capacity);
         }
+
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (T v in _series)
+            {
+                yield return v;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
 
         public T this[int index]
         {
@@ -51,31 +72,6 @@ namespace Task1
                 _series[index] = value;
             }
         }
-
-/*        public bool Remove1(int index)
-        {
-            //index--;
-            if (_length != 0)
-            {
-                if ((index < 0) || (index >= _length))
-                {
-                    throw new ArgumentException($"Значение {nameof(index)} находится за пределами границ массива");
-                }
-
-                for (int i = index; i < _length - 1; i++)
-                {
-                    _series[i] = _series[i + 1];
-                }
-                _length--;
-*//*                if ((_length != 0) && (_length == _capacity - 1))
-                {
-                    _capacity -= 1;
-                    Array.Resize(ref _series, _capacity);
-                }*//*
-                return true;
-            }
-            else { return false; }
-        }*/
 
         public bool Remove(T elementValue)
         {
@@ -105,12 +101,11 @@ namespace Task1
 
         public void AddRange(T[] massivValue)
         {
-           // if ((_length + massivValue.Length) >= _capacity)
-           // {
-                //_capacity += (_length + massivValue.Length);
-
+            //if ((_length + massivValue.Length) >= _capacity)
+            //{
+            //    _capacity += (_length + massivValue.Length);
                 Array.Resize(ref _series, _length + massivValue.Length);
-          //  }
+            //}
             int counter = 0;
             for (int i = _length; i < (_length + massivValue.Length); i++)
             {
@@ -137,8 +132,8 @@ namespace Task1
         {
             if ((_length != 0) && (_length >= _series.Length))
             {
-                // _capacity *= 2;
-                Array.Resize(ref _series, (_series.Length * 2));
+                //_capacity *= 2;
+                Array.Resize(ref _series, _series.Length * 2);
             }
         }
 
@@ -149,19 +144,15 @@ namespace Task1
 
         public int Capacity
         {
-            //get { return _capacity; }
             get { return _series.Length; }
         }
 
-        public void PrintSeries()
+        public void PrintSeries(DynamicArray<T> elems)
         {
-            //Console.WriteLine(_capacity);
-            Console.WriteLine(_length);
-            for (int i = 0; i < _length; i++)
+            foreach (T elem in elems)
             {
-                Console.WriteLine(_series[i]);
+                Console.WriteLine(elem);
             }
         }
-
     }
 }

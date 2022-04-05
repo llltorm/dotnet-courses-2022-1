@@ -20,6 +20,7 @@ namespace Task4
 
         public MyString(char[] s)
         {
+            //s.Clone();
             s.CopyTo(_str, 0); // переделать, чтобы не было ссылки
         }
 
