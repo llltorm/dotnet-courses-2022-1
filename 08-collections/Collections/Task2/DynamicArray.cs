@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Task2
@@ -33,19 +34,25 @@ namespace Task2
         }
 
 
-        public DynamicArray(IEnumerable<T> series)
+        public DynamicArray(IEnumerable<T> series): this (series.ToArray())
         {
-            _series = (T[])series;
-            _length = _series.Length;
+            
+/*            _series = (T[])series;
+            _length = _series.Length;*/
             //_capacity = _series.Length;
         }
 
 
         public IEnumerator<T> GetEnumerator()
         {
+            int counter = 0; 
             foreach (T v in _series)
             {
-                yield return v;
+                if (counter < _length)
+                {
+                    counter++;
+                    yield return v;
+                }
             }
         }
 

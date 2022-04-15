@@ -21,7 +21,8 @@ namespace Task4
         public MyString(char[] s)
         {
             //s.Clone();
-            s.CopyTo(_str, 0); // переделать, чтобы не было ссылки
+            //s.CopyTo(_str, 0); // переделать, чтобы не было ссылки
+            _str = (char[])s.Clone();
         }
 
         public char[] Str
@@ -58,7 +59,6 @@ namespace Task4
 
         public override string ToString()
         {
-            //a = "";
             string str = String.Concat(_str);
             return str;
         }
