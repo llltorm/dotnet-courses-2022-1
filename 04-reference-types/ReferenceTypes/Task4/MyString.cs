@@ -41,9 +41,12 @@ namespace Task4
 
         public static MyString operator -(MyString object1, MyString object2)
         {
-            string str1 = object1._str.ToString();
-            string str2 = object2._str.ToString();
-            return new MyString { _str = str1.Replace(str2, "").ToCharArray() };
+            string str1 = object1.ToString();
+            string str2 = object2.ToString();
+            int index = str1.IndexOf(str2);
+            string subtract = (index < 0) ? str1 : str1.Remove(index, str2.Length);
+            MyString Object3 = new MyString(subtract);
+            return Object3;
         }
 
         public static bool operator ==(MyString object1, MyString object2)
