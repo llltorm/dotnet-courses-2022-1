@@ -1,7 +1,7 @@
 ﻿using System;
 using MathLibrary;
 
-namespace DotnetBasics
+namespace Task1
 {
     class Program
     {
