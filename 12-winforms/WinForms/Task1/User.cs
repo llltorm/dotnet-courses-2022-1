@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Task1
+{
+    public class User
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime Birthdate { get; set; }
+        public int Age { get; set; }
+
+        public List<String> Awards = new List<String>();
+
+        public string Awarding
+        {
+            get
+            {
+                string Str = "";
+                foreach (var element in Awards)
+                { Str += element + " "; }
+                return Str;
+            }
+        }
+    }
+}

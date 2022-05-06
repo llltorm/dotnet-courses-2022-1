@@ -24,6 +24,8 @@ namespace Task2
             if (Name != other.Name) return false;
             if (LastName != other.LastName) return false;
             return true;
+            //return ((Name = other.Name)&(LastName = other.LastName))
+
         }
 
 

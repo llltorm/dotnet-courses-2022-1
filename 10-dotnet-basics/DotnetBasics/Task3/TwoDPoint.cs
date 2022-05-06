@@ -8,7 +8,7 @@ namespace Task3
 	{
 		public readonly int x, y;
 
-		public TwoDPoint(int x, int y)  //constructor
+		public TwoDPoint(int x, int y)  
 		{
 			this.x = x;
 			this.y = y;
@@ -16,50 +16,46 @@ namespace Task3
 
 		public override bool Equals(Object obj)
 		{
-			// If parameter is null return false.
 			if (obj == null)
 			{
 				return false;
 			}
 
-			// If parameter cannot be cast to Point return false.
 			TwoDPoint p = obj as TwoDPoint;
 			if ((Object)p == null)
 			{
 				return false;
 			}
 
-			// Return true if the fields match:
 			return (x == p.x) && (y == p.y);
 		}
 
 		public bool Equals(TwoDPoint p)
 		{
-			// If parameter is null return false:
+
 			if ((object)p == null)
 			{
 				return false;
 			}
 
-			// Return true if the fields match:
 			return (x == p.x) && (y == p.y);
 		}
 
 		public static bool operator ==(TwoDPoint a, TwoDPoint b)
 		{
-			// If both are null, or both are same instance, return true.
+
 			if (ReferenceEquals(a, b))
 			{
 				return true;
 			}
 
-			// If one is null, but not both, return false.
+
 			if (((object)a == null) || ((object)b == null))
 			{
 				return false;
 			}
 
-			// Return true if the fields match:
+
 			return a.x == b.x && a.y == b.y;
 		}
 
