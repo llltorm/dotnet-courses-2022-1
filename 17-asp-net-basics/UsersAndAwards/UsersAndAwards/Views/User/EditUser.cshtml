@@ -1,0 +1,58 @@
+@model Entities.User
+@{ var currentUser = Model; }
+
+<html>
+<head>
+
+</head>
+<body>
+
+    <div class="main">
+
+        <form method="post" class="form-horizontal" role="form">
+            <input type="hidden" value="@currentUser.Id" name="Id" />
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <div class="control-label">
+                    <input value="@currentUser.FirstName" type="text" name="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <div class="control-label">
+                    <input type="text" name="lastName" class="form-control" value="@currentUser.LastName" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Дата рождения:</label>
+                <div class="control-label">
+                    <input type="date" name="birthdate" class="form-control" value="@currentUser.Birthdate.ToString("yyyy-MM-dd")" required />
+                </div>
+            </div>
+
+            @foreach (var elem in currentUser.Awards)
+            {
+                <div class="form-group">
+                    <div class="radio-group">
+                        <div class="award">
+                            <label for="radio-button1">"@elem"</label>
+                            <input type="checkbox" name="Awards" class="radio-button1" value=@elem checked />
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+            <div class="form-group">
+                <div class="form-button">
+                    <input type="submit" class="btn-add" value="Сохранить" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

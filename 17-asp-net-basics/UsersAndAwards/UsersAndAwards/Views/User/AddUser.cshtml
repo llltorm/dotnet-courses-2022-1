@@ -1,0 +1,55 @@
+
+
+<html>
+<head>
+
+</head>
+<body>
+    <div class="main">
+
+        <form method="post" class="form-horizontal" role="form">
+            <input type="hidden" value="@ViewBag.ID" name="ID" />
+            <div class="form-group">
+                <label for="firstName">Имя:</label>
+                <div class="control-label">
+                    <input type="text" name="firstName" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <div class="control-label">
+                    <input type="text" name="lastName" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate">Дата рождения:</label>
+                <div class="control-label">
+                    <input type="datetime-local" name="birthdate" class="form-control" required />
+                </div>
+            </div>
+
+            @foreach (var elem in Model)
+            {
+                <div class="form-group">
+                    <div class="radio-group">
+                        <div class="award">
+                            <label for="radio-button1">@elem.Title</label>
+                            <input type="checkbox" name="Awards" class="radio-button" value=@elem.Title />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="form-group">
+                <div class="form-button">
+                    <input type="submit" class="btn-add" value="Добавить" />
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</body>
+</html>

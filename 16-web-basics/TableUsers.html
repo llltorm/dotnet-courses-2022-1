@@ -1,0 +1,86 @@
+<html>
+<head>
+  <link href="site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <div><img id="logo" src="./img/sharingan.jpg"></div>
+        <div class="saytName"><a>Оригинальное название сайта</a></div>
+    </div>
+
+    <nav>
+        <ul id="main_menu">
+            <li><a href="TableUsers.html">Пользователи</a></li>
+            <li><a href="TableAwards.html">Награды</a></li>
+            <li><a href="AddUser.html">Добавить человека</a></li>
+            <li><a href="AddAward.html">Добавить награду</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <table class="table" id="tableUser">
+            <thead>
+                <tr>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Дата рождения</th>
+                    <th>Возраст</th>
+                    <th>Награды</th>
+                    <th>Команды</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Никитов</td>
+                    <td>Олег</td>
+                    <td>24.05.2005</td>
+                    <td>4</td>
+                    <td>
+                        <ul id="awards">
+                            <li>Грамота</li>
+                            <li>Диплом</li>
+                            <li>Награда</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <input type="submit" value="удалить"/>
+                        <input type="submit" value="изменить"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Авдеев</td>
+                    <td>Александр</td>
+                    <td>11.11.2000</td>
+                    <td>20</td>
+                    <td>
+                        <ul id="awards">
+                            <li>Грамота</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <input type="submit" value="удалить"/>
+                        <input type="submit" value="изменить"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Анисимова</td>
+                    <td>Валерия</td>
+                    <td>31.02.1999</td>
+                    <td>22</td>
+                    <td>
+                        <ul id="awards">
+                            <li>Диплом</li>
+                            <li>Награда</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <input type="submit" value="удалить"/>
+                        <input type="submit" value="изменить"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </main>
+</body>
+</html>

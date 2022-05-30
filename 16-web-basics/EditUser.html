@@ -1,0 +1,73 @@
+﻿@model Entities.User 
+@{ var currentUser = Model; }
+
+<html>
+<head>
+<link href="site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <div><img id="logo" src="./img/sharingan.jpg"></div>
+        <div class="saytName"><a>Оригинальное название сайта</a></div>
+    </div>
+
+    <nav>
+        <ul id="main_menu">
+            <li><a href="TableUsers.html">Пользователи</a></li>
+            <li><a href="TableAwards.html">Награды</a></li>
+            <li><a href="AddUser.html">Добавить человека</a></li>
+            <li><a href="AddAward.html">Добавить награду</a></li>
+        </ul>
+    </nav>
+    <div class="main">
+
+        <form method="post" class="form-horizontal" role="form">
+            <input type="hidden" value="@currentUser.ID" name="ID" />
+            <div class="form-group">
+                <label for="name">Имя:</label>
+                <div class="control-label">
+                    <input value="@currentUser.FirstName" type="text" name="name" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastName">Фамилия:</label>
+                <div class="control-label">
+                    <input type="text" name="lastName" class="form-control" value="@currentUser.LastName" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="birthdate" >Дата рождения:</label>
+                <div class="control-label">
+                    <input type="datetime-local" name="birthdate" class="form-control" value="@currentUser.BirthDate.ToString" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="radio-group">
+                    <div class="award1">
+                        <label for="radio-button1" >Награда:</label>
+                        <input type="checkbox" class="radio-button1" value="Награда" />
+                    </div>
+                    <div class="award2">
+                        <label for="radio-button2" >Диплом:</label>
+                        <input type="checkbox" class="radio-button2" value="Диплом" />
+                    </div>
+                    <div class="award3">
+                        <label for="radio-button3" >Грамота:</label>
+                        <input type="checkbox" class="radio-button3" value="Грамота" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-button">
+                    <input type="submit" class="btn-add" value="Сохранить" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

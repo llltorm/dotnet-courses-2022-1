@@ -1,4 +1,4 @@
-﻿using Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,7 +8,7 @@ using System.Data;
 
 namespace DAL
 {
-    public class AwardBDDao : IAwardDao
+    public class AwardBDDao : IAwardDAO
     {
         private readonly List<Award> _awards = new List<Award>();
 

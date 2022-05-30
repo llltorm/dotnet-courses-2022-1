@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UsersAndAwards</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="header">
+        <div><img id="logo" src="./img/sharingan.jpg"></div>
+        <div class="saytName"><a>Оригинальное название сайта</a></div>
+    </div>
+
+    <nav>
+        <ul id="main_menu">
+            <li><a asp-area="" asp-controller="User" asp-action="Index">Пользователи</a></li>
+            <li><a asp-area="" asp-controller="Award" asp-action="Index">Награды</a></li>
+            <li><a asp-area="" asp-controller="User" asp-action="AddUser">Добавить человека</a></li>
+            <li><a asp-area="" asp-controller="Award" asp-action="AddAward">Добавить награду</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

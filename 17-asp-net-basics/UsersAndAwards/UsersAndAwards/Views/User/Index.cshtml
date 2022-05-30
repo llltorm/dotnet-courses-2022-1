@@ -1,0 +1,48 @@
+<html>
+<head>
+
+</head>
+<body>
+
+    <main>
+        <table class="table" id="tableUser">
+            <thead>
+                <tr>
+                    <th>Фамилия</th>
+                    <th>Имя</th>
+                    <th>Дата рождения</th>
+                    <th>Возраст</th>
+                    <th>Награды</th>
+                    <th>Команды</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model)
+                {
+                    <tr>
+                        <td>@user.FirstName</td>
+                        <td>@user.LastName</td>
+                        <td>@user.Birthdate</td>
+                        <td>@user.Age</td>
+                        <td>
+                            <ul id="awards">
+                                @foreach (var item in user.Awards)
+                                {
+                                    <li>@item</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            @Html.ActionLink("изменить", "EditUser", "User", new { id = @user.Id }, new { @class = "btn_edit" })
+                            @Html.ActionLink("удалить", "DeleteUser", "User", new { id = @user.Id }, new { @class = "btn_delete" })
+                            @Html.ActionLink("добавить награду", "GetAward", "User", new { id = @user.Id }, new { @class = "btn_edit" })
+                        </td>
+                    </tr>
+                }
+
+                </tbody>
+        </table>
+
+    </main>
+</body>
+</html>

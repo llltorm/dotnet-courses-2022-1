@@ -1,0 +1,51 @@
+﻿@model Entities.Award
+@{ var currentaward = Model; }
+
+<html>
+<head>
+<link href="site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <div><img id="logo" src="./img/sharingan.jpg"></div>
+        <div class="saytName"><a>Оригинальное название сайта</a></div>
+    </div>
+
+    <nav>
+        <ul id="main_menu">
+            <li><a href="TableUsers.html">Пользователи</a></li>
+            <li><a href="TableAwards.html">Награды</a></li>
+            <li><a href="AddUser.html">Добавить человека</a></li>
+            <li><a href="AddAward.html">Добавить награду</a></li>
+        </ul>
+    </nav>
+    <div class="main">
+
+        <form method="post" class="form-horizontal" role="form">
+            <input type="hidden" value="@currentaward.ID" name="ID" />
+            <div class="form-group">
+                <label for="title" >Название:</label>
+                <div class="control-label">
+                    <input value="@currentaward.Title" type="text" name="title" class="form-control" required />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="desc">Описание:</label>
+                <div class="control-label">
+                    <input type="text" name="desc" class="form-control" value="@currentaward.Description" required />
+                </div>
+            </div>
+
+            
+
+            <div class="form-group">
+                <div class="form-button">
+                    <input type="submit" class="btn-add" value="Сохранить" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</body>
+</html>

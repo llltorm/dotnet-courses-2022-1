@@ -1,0 +1,35 @@
+@model IEnumerable<Entities.Award>
+
+<html>
+<head>
+    
+</head>
+<body>
+
+    <main>
+        <table class="table" id="tableAward">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Command</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var award in Model)
+                {
+                <tr>
+                    <td>@award.Title</td>
+                    <td>@award.Description</td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditAward", "Award", new { id = @award.Id }, new { @class = "btn_edit" })
+                        @Html.ActionLink("Delete", "DeleteAward", "Award", new { id = @award.Id }, new { @class = "btn_delete" })
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </main>
+</body>
+</html>

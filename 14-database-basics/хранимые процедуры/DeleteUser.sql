@@ -6,16 +6,24 @@ CREATE PROCEDURE DeleteUser
 )
 AS
 BEGIN
+
+	DELETE FROM ConnectionUserAndAward
+	Where UserId = @UserId
+
+
 	DELETE FROM Users 
 	Where Id = @UserId
 
-	UPDATE Users
-	SET Id = Id - 1
-	WHERE Id > @UserId
+	--UPDATE Users
+	--SET Id = Id - 1
+	--WHERE Id > @UserId
+
 END
 
---EXECUTE DeleteUser @UserId = 4
+EXECUTE DeleteUser @UserId = 5
 
---DROP PROCEDURE DeleteUser
+DROP PROCEDURE DeleteUser
 
---Select * From Users
+SELECT * FROM Award
+SELECT * FROM Users
+SELECT * FROM ConnectionUserAndAward
